@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:18-alpine as build
 # Default version
 ARG VERSION="0.5.2"
 # RUN apk update && apk upgrade && apk add --no-cache curl python3 make g++
