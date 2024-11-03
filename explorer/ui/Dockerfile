@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:18-alpine as build
 RUN apk update && apk upgrade && apk add --no-cache curl python3 make g++
 RUN curl -L https://github.com/ergoplatform/explorer-frontend/archive/refs/heads/master.tar.gz > /tmp/src.tar.gz && \
     tar -xf /tmp/src.tar.gz  -C /tmp && \
@@ -18,11 +18,11 @@ RUN sed -i "s|_api_|${API}|g" /app/src/config/environment.default.ts && \
 RUN npm i --location=global corepack && \
     yarn && \
     yarn install && \
-    yarn run build && \
+    NODE_OPTIONS=--openssl-legacy-provider yarn run build && \
     yarn cache clean && \
     yarn global add serve
 
-FROM node:16-alpine
+FROM node:18-alpine
 ENV NODE_ENV production
 WORKDIR /app
 COPY --from=build /app/node_modules ./node_modules
