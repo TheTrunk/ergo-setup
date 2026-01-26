@@ -19,7 +19,7 @@ cp explorer-backend-${EXPLORER_VERSION}/modules/utx-broadcaster/Dockerfile explo
 cp explorer-backend-${EXPLORER_VERSION}/modules/utx-tracker/Dockerfile explorer-backend-${EXPLORER_VERSION}/utx-tracker.Dockerfile
 
 echo "Fixing deprecated OpenJDK base images"
-sed -i.bak 's|FROM openjdk:8-jre-slim|FROM eclipse-temurin:8-jre-alpine|g' explorer-backend-${EXPLORER_VERSION}/*.Dockerfile
+sed -i.bak 's|FROM openjdk:8-jre-slim|FROM eclipse-temurin:8-jre|g' explorer-backend-${EXPLORER_VERSION}/*.Dockerfile
 rm -f explorer-backend-${EXPLORER_VERSION}/*.Dockerfile.bak
 
 echo "Done."
