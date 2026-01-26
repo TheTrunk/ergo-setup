@@ -21,8 +21,8 @@ echo "Fixing deprecated OpenJDK base images"
 sed -i.bak 's|FROM openjdk:8-jre-slim|FROM eclipse-temurin:8-jre|g' explorer-backend-${EXPLORER_BRANCH}/*.Dockerfile
 rm -f explorer-backend-${EXPLORER_BRANCH}/*.Dockerfile.bak
 
-echo "Fixing broken SNAPSHOT dependency"
-sed -i.bak 's|v3.3.8-aaaab5ef-SNAPSHOT|3.3.7|g' explorer-backend-${EXPLORER_BRANCH}/project/versions.scala
+echo "Fixing broken SNAPSHOT dependencies"
+sed -i.bak 's|v3.3.8-aaaab5ef-SNAPSHOT|5.0.27|g' explorer-backend-${EXPLORER_BRANCH}/project/versions.scala
 rm -f explorer-backend-${EXPLORER_BRANCH}/project/versions.scala.bak
 
 echo "Done."
