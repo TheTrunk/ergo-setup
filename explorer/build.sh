@@ -22,8 +22,8 @@ sed -i.bak 's|FROM openjdk:8-jre-slim|FROM eclipse-temurin:8-jre|g' explorer-bac
 rm -f explorer-backend-${EXPLORER_BRANCH}/*.Dockerfile.bak
 
 echo "Fixing broken SNAPSHOT dependencies"
-sed -i.bak 's|v3.3.8-aaaab5ef-SNAPSHOT|5.0.27|g' explorer-backend-${EXPLORER_BRANCH}/project/versions.scala
-sed -i.bak 's|4.0.6-31-e2e0ffa1-SNAPSHOT|5.0.15|g' explorer-backend-${EXPLORER_BRANCH}/project/dependencies.scala
+sed -i.bak 's|v3.3.8-aaaab5ef-SNAPSHOT|3.3.7|g' explorer-backend-${EXPLORER_BRANCH}/project/versions.scala
+sed -i.bak 's|4.0.6-31-e2e0ffa1-SNAPSHOT|4.0.7|g' explorer-backend-${EXPLORER_BRANCH}/project/dependencies.scala
 rm -f explorer-backend-${EXPLORER_BRANCH}/project/*.bak
 
 echo "Done."
